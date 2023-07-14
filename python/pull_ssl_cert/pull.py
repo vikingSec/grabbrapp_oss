@@ -10,13 +10,15 @@
 # Example:
 # 	go run main.go youtube.com
 # 	go run main.go youtube.com --out
-import os, sys
+import os, sys, requests
 from dotenv import load_dotenv
 
 load_dotenv()
 def main():
-
-    domain = sys.argv[1]
+    try:
+        domain = sys.argv[1]
+    except:
+        print("[x] Please run the python file with a domain as the first argument")
     apikey = os.getenv("GRABBRAPP_APIKEY")
     email = os.getenv("GRABBRAPP_EMAIL")
     if apikey == None:
@@ -26,12 +28,25 @@ def main():
     if email == None:
         print("No email in ./.env file")
         return
-    domain = domain.split("://")[1]
-	postdata = {
-		Email:  "mitch@grabbrapp.io",
-		Apikey: "5fa62d6429e17c82e317513bea549581",
-		Domain: domain,
+    try:
+        domain = domain.split("://")[1]
+    except:
+        domain = domain
+    postdata = {
+		"email":  email,
+		"apikey": apikey,
+		"domain": domain
 	}
 
+    url = "https://grabbrapp.io/api/dapi/ssl/domain"
+    res = requests.post(url=url, json=postdata)
+    if "--out" in sys.argv:
+        print(res.text)
+        return
+    else:
+        f = open("./"+domain+"_ssl.json","w")
+        f.write(res.text)
+        f.close()
+        return
 if __name__ == "__main__":
     main()
