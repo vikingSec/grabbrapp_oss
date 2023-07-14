@@ -51,8 +51,8 @@ func main() {
 	domain := os.Args[1]
 	domain = strings.Split(domain, "://")[1]
 	postdata := PostData{
-		Email:  "mitch@grabbrapp.io",
-		Apikey: "5fa62d6429e17c82e317513bea549581",
+		Email:  email
+		Apikey: apikey,
 		Domain: domain,
 	}
 	postdatabuffer, err := json.Marshal(postdata)
