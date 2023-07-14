@@ -51,7 +51,7 @@ func main() {
 	domain := os.Args[1]
 	domain = strings.Split(domain, "://")[1]
 	postdata := PostData{
-		Email:  email
+		Email:  email,
 		Apikey: apikey,
 		Domain: domain,
 	}

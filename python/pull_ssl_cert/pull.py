@@ -1,6 +1,6 @@
 
-# https://github.com/vikingSec/grabbrapp_oss/golang/pull_ssl_cert
-# This Golang code will utilize the GrabbrApp API to pull down SSL certificate information on a domain.
+# https://github.com/vikingSec/grabbrapp_oss/python/pull_ssl_cert
+# This Python code will utilize the GrabbrApp API to pull down SSL certificate information on a domain.
 # NOTE: You can obtain your API key by going to grabbrapp.io/user if you already have an account, or go to grabbrapp.io/signup to sign up for a free account
 # INPUT:
 # 	arg1 - Domain - The domain that you would like to look up
@@ -8,8 +8,8 @@
 # OUTPUT:
 # 	This will output to a file named {domain}_ssl.json . If you would like for it to simply output to stdout, you can pass in the --out flag like the second example given below
 # Example:
-# 	go run main.go youtube.com
-# 	go run main.go youtube.com --out
+# 	python pull.py youtube.com
+# 	python pull.py youtube.com --out
 import os, sys, requests
 from dotenv import load_dotenv
 
