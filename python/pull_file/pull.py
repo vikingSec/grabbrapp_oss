@@ -1,12 +1,12 @@
 
-# https://github.com/vikingSec/grabbrapp_oss/python/pull_ssl_cert
-# This Python code will utilize the GrabbrApp API to pull down SSL certificate information on a domain.
+# https://github.com/vikingSec/grabbrapp_oss/python/pull_file
+# This Python code will utilize the GrabbrApp API to pull down a file from the specified URL
 # NOTE: You can obtain your API key by going to grabbrapp.io/user if you already have an account, or go to grabbrapp.io/signup to sign up for a free account
 # INPUT:
-# 	arg1 - Domain - The domain that you would like to look up
+# 	arg1 - Domain - The URL for the file you're trying to download
 # 	.env - ENV file - An environment variable file containing your EMail and the API key associated with your email. Please reference the .sampleenv file
 # OUTPUT:
-# 	This will output to a file named {domain}_ssl.json . If you would like for it to simply output to stdout, you can pass in the --out flag like the second example given below
+# 	This will output to a file named after the MD5 hash of the file you pulled down . If you would like for it to simply output to stdout, you can pass in the --out flag like the second example given below
 # Example:
 # 	python pull.py youtube.com
 # 	python pull.py youtube.com --out
